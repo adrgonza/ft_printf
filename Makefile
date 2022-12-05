@@ -1,27 +1,30 @@
-NAME = ft_printf.a
-CC = gcc
-FLAGS = -Wall -Werror -Wextra
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: adrgonza <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/12/05 16:20:42 by adrgonza          #+#    #+#              #
+#    Updated: 2022/12/05 16:20:45 by adrgonza         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-SRC = ft_printf.c \
-	  ft_tools.c \
-	  
+NAME = libftprintf.a
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror
+RM = rm -f
+SRC = ft_printf.c ft_tools.c \
+
 OBJ = $(SRC:.c=.o)
 
-all: $(NAME)
+all : $(NAME)
 
-$(NAME): $(OBJ)
-	@ar rc $(NAME) $(OBJ)
-	@ranlib $(NAME)
-
-%.o: %.c
-	@gcc $(FLAG) -c $< -o $@
+$(NAME) : $(OBJ) ft_printf.h
+		@ar rc $(NAME) $(OBJ)
 
 clean:
-	@rm -f $(OBJ)
-
+	@$(RM) $(OBJ)
 fclean: clean
-	@rm -f $(NAME)
-
+	@$(RM) $(NAME)
 re: fclean all
-
-.PHONY: all, clean, fclean, re
