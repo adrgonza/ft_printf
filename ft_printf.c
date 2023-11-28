@@ -6,7 +6,7 @@
 /*   By: adrgonza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 14:36:06 by adrgonza          #+#    #+#             */
-/*   Updated: 2022/12/05 16:24:32 by adrgonza         ###   ########.fr       */
+/*   Updated: 2023/11/28 22:14:24 by adrgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,5 @@ int	ft_printf(char const *fmt, ...)
 		count += r_value;
 		fmt++;
 	}
-	va_end(args);
-	return (count);
+	return (va_end(args), count);
 }
