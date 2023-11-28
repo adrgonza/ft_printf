@@ -63,7 +63,7 @@ int	ft_putnbr(int nb)
 		if (ft_putchr('-') == -1)
 			return (-1);
 		count++;
-		nb = nb * -1;
+		nb *= -1;
 	}
 	if (nb > 9)
 	{
