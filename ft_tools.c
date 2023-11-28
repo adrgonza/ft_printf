@@ -22,8 +22,8 @@ int	ft_putunsigned(unsigned int nb)
 	int	r_value;
 	int	count;
 
-	r_value = 0;
 	count = 0;
+	r_value = 0;
 	if (nb > 9)
 	{
 		r_value = ft_putunsigned(nb / 10);
