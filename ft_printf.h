@@ -17,6 +17,8 @@
 # include <unistd.h>
 # include <stdio.h>
 
+int	ft_printf(char const *s, ...) __attribute__((format(printf, 1, 2)));
+
 int	ft_printf(char const *s, ...);
 int	ft_putchr(int c);
 int	ft_putstr(const char *s);

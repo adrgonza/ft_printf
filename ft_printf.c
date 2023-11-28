@@ -28,24 +28,28 @@ int	ft_check_conversions(char s, va_list args)
 		return (ft_puthex(va_arg(args, unsigned long int), s));
 	else if (s == '%')
 		return (write(1, "%", 1));
-	return (0);
+	return (-1);
 }
 
-int	ft_printf(char const *s, ...)
+int	ft_printf(char const *fmt, ...)
 {
 	va_list	args;
-	int		a;
+	int		r_value;
+	int		count;
 
-	va_start(args, s);
-	a = 0;
-	while (*s)
+	va_start(args, fmt);
+	count = 0;
+	while (*fmt)
 	{
-		if (*s == '%')
-			a += ft_check_conversions(*(++s), args);
+		if (*fmt == '%')
+			r_value = ft_check_conversions(*(++fmt), args);
 		else
-			a += write(1, &*s, 1);
-		s++;
+			r_value = write(1, &*fmt, 1);
+		if (r_value == -1)
+			return (va_end(args), -1);
+		count += r_value;
+		fmt++;
 	}
 	va_end(args);
-	return (a);
+	return (count);
 }
