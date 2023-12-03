@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int	ft_check_conversions(char s, va_list args)
+static int	ft_check_conversions(char const s, va_list args)
 {
 	if (s == 'c')
 		return (ft_putchr(va_arg(args, int)));

@@ -12,12 +12,12 @@
 
 #include "ft_printf.h"
 
-int	ft_putchr(int c)
+int	ft_putchr(int const ch)
 {
-	return (write(1, &c, 1));
+	return (write(1, &ch, 1));
 }
 
-int	ft_putunsigned(unsigned int nb)
+int	ft_putunsigned(unsigned int const nb)
 {
 	int	r_value;
 	int	count;
@@ -37,16 +37,16 @@ int	ft_putunsigned(unsigned int nb)
 	return (count);
 }
 
-int	ft_putstr(const char *s)
+int	ft_putstr(char const *str)
 {
 	int	i;
 
-	if (!s)
+	if (!str)
 		return (write(1, "(null)", 6));
 	i = 0;
-	while (s[i])
+	while (str[i])
 		i++;
-	return (write(1, s, i));
+	return (write(1, str, i));
 }
 
 int	ft_putnbr(int nb)
@@ -77,7 +77,7 @@ int	ft_putnbr(int nb)
 	return (count + 1);
 }
 
-int	ft_puthex(unsigned long n, char ch)
+int	ft_puthex(unsigned long const nb, char ch)
 {
 	int		r_value;
 	int		count;
@@ -94,12 +94,12 @@ int	ft_puthex(unsigned long n, char ch)
 			return (-1);
 		ch = 0;
 	}
-	if (n < 16)
-		return (count += ft_putchr(s[n]));
-	r_value = ft_puthex(n / 16, ch);
+	if (nb < 16)
+		return (count += ft_putchr(s[nb]));
+	r_value = ft_puthex(nb / 16, ch);
 	if (r_value == -1)
 		return (-1);
-	r_value += ft_puthex(n % 16, ch);
+	r_value += ft_puthex(nb % 16, ch);
 	if (r_value == -1)
 		return (-1);
 	return (count + r_value);

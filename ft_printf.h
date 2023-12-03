@@ -17,13 +17,13 @@
 # include <unistd.h>
 # include <stdio.h>
 
-int	ft_printf(char const *s, ...) __attribute__((format(printf, 1, 2)));
+int	ft_printf(char const *fmt, ...) __attribute__((format(printf, 1, 2)));
 
-int	ft_printf(char const *s, ...);
-int	ft_putchr(int c);
-int	ft_putstr(const char *s);
+int	ft_printf(char const *fmt, ...);
+int	ft_putchr(int const ch);
+int	ft_putstr(char const *str);
 int	ft_putnbr(int nb);
-int	ft_putunsigned(unsigned int a);
-int	ft_puthex(unsigned long n, char c);
+int	ft_putunsigned(unsigned int const nb);
+int	ft_puthex(unsigned long const nb, char ch);
 
 #endif
