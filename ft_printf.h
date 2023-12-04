@@ -20,6 +20,8 @@
 int	ft_printf(char const *fmt, ...) __attribute__((format(printf, 1, 2)));
 
 int	ft_printf(char const *fmt, ...);
+static int	ft_check_conversions(char const s, va_list args);
+
 int	ft_putchr(int const ch);
 int	ft_putstr(char const *str);
 int	ft_putnbr(int nb);
